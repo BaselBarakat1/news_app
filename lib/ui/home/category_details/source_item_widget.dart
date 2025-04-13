@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/model/source.dart';
+import 'package:news_app/model/source_response/Source.dart';
 
 class sourceItemWidget extends StatelessWidget {
 Source source;
@@ -18,7 +18,7 @@ sourceItemWidget({required this.source,required this.isSelected});
         ),
         borderRadius: BorderRadius.circular(25)
       ),
-      child: Text(source.title,style: TextStyle(fontWeight:FontWeight.w400 ,fontSize:14 ,color: isSelected? Colors.white : Color(0xff39A552) )),
+      child: Text(source.name ??'',style: TextStyle(fontWeight:FontWeight.w400 ,fontSize:14 ,color: isSelected? Colors.white : Color(0xff39A552) )),
     );
   }
 }

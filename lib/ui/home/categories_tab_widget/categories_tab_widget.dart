@@ -15,7 +15,9 @@ List<CategoryModel> categoriesList = CategoryModel.getAllCategories();
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Pick your category\nof interest',style: TextStyle(fontSize: 22,fontWeight:FontWeight.w700 ,color:Color(0xff4F5A69) ),),
+          Container(
+              padding: EdgeInsets.only(bottom: 29),
+              child: Text('Pick your category\nof interest',style: TextStyle(fontSize: 22,fontWeight:FontWeight.w700 ,color:Color(0xff4F5A69) ),)),
           Expanded(
             child: GridView.builder(gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing:20,crossAxisSpacing: 25 ,),
                 itemBuilder: (context, index) => InkWell(

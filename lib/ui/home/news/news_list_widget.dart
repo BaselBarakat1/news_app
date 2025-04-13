@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/api_manager/api_manager.dart';
-import 'package:news_app/model/category_model.dart';
-import 'package:news_app/ui/home/category_details/sources_tab_widget.dart';
+import 'package:news_app/model/source_response/Source.dart';
+import 'package:news_app/ui/home/news/news_item_widget.dart';
 
-class categoryDetails extends StatelessWidget {
-CategoryModel category;
-
-categoryDetails({required this.category});
-
+class newsListWidget extends StatelessWidget {
+Source source;
+newsListWidget({required this.source});
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: ApiManager.getSources(category.id),
+        future: ApiManager.getNews(source.id!),
         builder: (context, snapshot) {
           if(snapshot.connectionState == ConnectionState.waiting){
             return Center(child: CircularProgressIndicator(color: Color(0xff39A552),));
@@ -26,10 +24,10 @@ categoryDetails({required this.category});
               ),
             );
           }
-          var sourcesList = snapshot.data?.sources;
-          return sourcesTabWidget(Sources: sourcesList!,);
+          var newsList = snapshot.data?.articles;
+          return Expanded(child: ListView.builder(itemBuilder: (context, index) => newsItemWidget(news: newsList![index]),
+            itemCount: newsList?.length,));
         },
     );
-    //
   }
 }
