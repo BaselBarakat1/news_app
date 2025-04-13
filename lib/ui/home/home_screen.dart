@@ -29,6 +29,7 @@ class _homeScreenState extends State<homeScreen> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white,size: 32),
           centerTitle: true,
           backgroundColor: Color(0xff39A552),
           shape: RoundedRectangleBorder(
